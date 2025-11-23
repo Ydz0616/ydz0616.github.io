@@ -1,0 +1,439 @@
+
+/* ===== Base ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", -sans-serif;
+    background-color: #f8f8f8;
+    
+    color: #111827;
+    line-height: 1.7;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* ===== Layout ===== */
+  .page-wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 20px 48px;
+  }
+  
+    /* Favorite quote on index */
+  .page-quote {
+    font-size: 13px;
+    color: #6b7280;
+    font-style: italic;
+    margin-bottom: 22px;
+  }
+
+  .page-quote-author {
+    font-size: 11px;
+    color: #9ca3af;
+  }
+  
+  /* Make content links blue but keep nav style */
+  main a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+
+  main a:hover {
+    text-decoration: underline;
+  }
+
+
+  /* ===== Top Nav ===== */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 16px;
+  }
+  
+  .nav-left {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  
+  .nav-subtitle {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-top: 2px;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 18px;
+    font-size: 14px;
+  }
+  
+  .nav-links a {
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    color: #6b7280;
+  }
+  
+  .nav-links a:hover {
+    color: #111827;
+    border-color: #d1d5db;
+  }
+  
+  .nav-links a.active {
+    color: #111827;
+    border-color: #111827;
+  }
+  
+  /* ===== Section Titles ===== */
+  .page-title {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  
+  .page-tagline {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 24px;
+  }
+  
+  /* ===== About Page ===== */
+  .about-intro {
+    font-size: 15px;
+    margin-bottom: 16px;
+  }
+  
+  .highlight {
+    color: #2563eb;       /* 柔和的 UCSD 蓝调 */
+    font-weight: 500;     /* 中等粗体，清晰但不厚重 */
+
+  }
+  
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.4fr;
+    gap: 28px;
+    margin-top: 12px;
+  }
+  
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #9ca3af;
+    margin-bottom: 4px;
+  }
+  
+  .about-block {
+    margin-bottom: 14px;
+  }
+  
+  .about-list {
+    list-style: none;
+    font-size: 13px;
+    color: #4b5563;
+  }
+  
+  .about-list li + li {
+    margin-top: 3px;
+  }
+  
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  
+  .tag {
+    font-size: 10px;
+    padding: 3px 7px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    color: #4b5563;
+  }
+  
+  /* ===== Research Page ===== */
+  .research-list {
+    margin-top: 12px;
+  }
+  
+  .research-item {
+    display: grid;
+    grid-template-columns: 260px 1fr;   /* 左边区域更宽，让图放大 */
+    gap: 22px;
+    padding: 18px 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  
+  .research-thumb {
+    width: 100%;
+    height: 170px;                     /* 高度明显加大 */
+    object-fit: contain;               /* 不裁剪，整张图可见 */
+    background-color: #f9fafb;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    display: block;
+  }
+  
+  
+  
+  .research-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  
+  .research-meta {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-bottom: 4px;
+  }
+  
+  .research-desc {
+    font-size: 13px;
+    color: #4b5563;
+  }
+  
+  /* ===== Blog Page ===== */
+  .blog-list {
+    margin-top: 12px;
+  }
+  
+  .blog-card {
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  
+  .blog-title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 2px;
+  }
+  
+  .blog-meta {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-bottom: 4px;
+  }
+  
+  .blog-excerpt {
+    font-size: 13px;
+    color: #4b5563;
+  }
+  
+  /* ===== Hobbies Page ===== */
+  .hobby-intro {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 14px;
+  }
+  
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+  
+  .photo-placeholder {
+    background-color: #f3f4f6;
+    height: 90px;
+    border-radius: 6px;
+    font-size: 9px;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* ===== Responsive ===== */
+  @media (max-width: 720px) {
+    .page-wrapper {
+      padding: 20px 16px 32px;
+    }
+  
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+  
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .research-item {
+      grid-template-columns: 1fr;
+    }
+  
+    .photo-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+
+  /* ===== Hobbies images ===== */
+
+.photo-grid img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  }
+  
+  .photo-grid img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.10);
+    opacity: 0.96;
+  }
+  
+  /* ===== Lightbox ===== */
+  
+  .lightbox-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.82);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 60;
+  }
+  
+  .lightbox-backdrop.active {
+    display: flex;
+  }
+  
+  .lightbox-image {
+    max-width: 92vw;
+    max-height: 92vh;
+    border-radius: 10px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.55);
+  }
+  
+  .lightbox-caption {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #e5e7eb;
+    text-align: center;
+    max-width: 80vw;
+  }
+  
+  .lightbox-close {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    font-size: 24px;
+    color: #e5e7eb;
+    cursor: pointer;
+  }
+  
+/* ===== Hobbies: horizontal strips (Instagram-style) ===== */
+
+.photo-strip {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  padding-bottom: 4px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.photo-strip img {
+  height: 300px;              /* 统一高度，尺寸稍大一点 */
+  width: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+.photo-strip img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.16);
+  opacity: 0.97;
+}
+
+/* 可选：让滚动条更低调一点 */
+.photo-strip::-webkit-scrollbar {
+  height: 4px;
+}
+.photo-strip::-webkit-scrollbar-track {
+  background: transparent;
+}
+.photo-strip::-webkit-scrollbar-thumb {
+  background: #e5e7eb;
+  border-radius: 999px;
+}
+
+/* Lightbox（如果之前已经有，可以复用） */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.82);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 60;
+}
+
+.lightbox-backdrop.active {
+  display: flex;
+}
+
+.lightbox-image {
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 10px;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.55);
+}
+
+.lightbox-caption {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #e5e7eb;
+  text-align: center;
+  max-width: 80vw;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  font-size: 24px;
+  color: #e5e7eb;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .research-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .research-thumb {
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    padding: 6px;
+  }
+}

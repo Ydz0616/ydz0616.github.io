@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yuandong Zhang — Hobbies</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div class="page-wrapper">
+  <header class="navbar">
+    <div>
+      <div class="nav-left">Yuandong Zhang</div>
+      <div class="nav-subtitle">Essentials for me</div>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="blog.html">Blog</a>
+      <a href="hobbies.html" class="active">Hobbies</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="page-title">Hobbies</h1>
+    <p class="hobby-intro">
+      I enjoy doing stuff like these below.
+    </p>
+
+    <!-- Photography -->
+    <section style="margin-top:32px;">
+      <h2 class="section-label">Photography</h2>
+      <p class="hobby-intro">Moments from walks, travel, and light I wanted to keep.</p>
+      <div class="photo-strip"
+           data-dir="images/photography"
+           data-prefix="p"
+           data-max="30"
+           data-label="Photography">
+      </div>
+    </section>
+
+    <!-- Sports & Movement -->
+    <section style="margin-top:32px;">
+      <h2 class="section-label">Sports & Movement</h2>
+      <p class="hobby-intro">Staying active enough so my head stays clear.</p>
+      <div class="photo-strip"
+           data-dir="images/sports"
+           data-prefix="s"
+           data-max="30"
+           data-label="Sports">
+      </div>
+    </section>
+
+    <!-- Cooking & Food -->
+    <section style="margin-top:32px;">
+      <h2 class="section-label">Cooking & Food</h2>
+      <p class="hobby-intro">Simple, honest food that makes busy weeks feel human.</p>
+      <div class="photo-strip"
+           data-dir="images/food"
+           data-prefix="f"
+           data-max="50"
+           data-label="Food">
+      </div>
+    </section>
+
+    <!-- Music -->
+    <section style="margin-top:32px;">
+      <h2 class="section-label">Music</h2>
+      <p class="hobby-intro">
+        Mostly classical and jazz — albums I come back to while coding, reading, or thinking.
+      </p>
+      <div class="photo-strip"
+           data-dir="images/music"
+           data-prefix="m"
+           data-max="30"
+           data-label="Music">
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox-backdrop" id="lightbox">
+  <div class="lightbox-close" id="lightbox-close">&times;</div>
+  <div>
+    <img class="lightbox-image" id="lightbox-img" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+  // Auto-generate strips from folders
+  (function () {
+    const strips = document.querySelectorAll('.photo-strip');
+
+    strips.forEach(strip => {
+      const dir = strip.dataset.dir;
+      const prefix = strip.dataset.prefix;
+      const max = parseInt(strip.dataset.max || '30', 10);
+      const label = strip.dataset.label || '';
+
+      for (let i = 1; i <= max; i++) {
+        const img = document.createElement('img');
+        const src = `${dir}/${prefix}${i}.jpg`;
+        img.src = src;
+        img.loading = 'lazy';
+        img.alt = `${label} ${i}`;
+        img.dataset.caption = `${label} ${i}`;
+        img.onerror = () => img.remove();
+        strip.appendChild(img);
+      }
+    });
+  })();
+
+  // Lightbox
+  (function () {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    document.addEventListener('click', (e) => {
+      const img = e.target.closest('.photo-strip img');
+      if (!img) return;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || '';
+      lightboxCaption.textContent = img.dataset.caption || img.alt || '';
+      lightbox.classList.add('active');
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+      lightboxCaption.textContent = '';
+    }
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  })();
+</script>
+</body>
+</html>
